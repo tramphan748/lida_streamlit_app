@@ -3,17 +3,18 @@ from streamlit_option_menu import option_menu
 
 def show_home():
     # Tạo menu với option_menu
-    selected = option_menu( 
-        menu_title="NTViz Menu",
-        options=["Home", "LIDA", "Contribute", "Source", "Support"],  # Các mục
-        icons=["house", "bar-chart", "hand-thumbs-up", "book", "envelope"],  # Các biểu tượng
-        menu_icon="cast",  # Biểu tượng menu
-        default_index=0,  # Mục mặc định
-        orientation="horizontal"  # Menu ngang
-    )
+    # selected = option_menu( 
+    #     menu_title="NTViz Menu",
+    #     options=["Home", "LIDA", "Contribute", "Source", "Support"],  # Các mục
+    #     icons=["house", "bar-chart", "hand-thumbs-up", "book", "envelope"],  # Các biểu tượng
+    #     menu_icon="cast",  # Biểu tượng menu
+    #     default_index=0,  # Mục mặc định
+    #     orientation="horizontal"  # Menu ngang
+    # )
 
+    home, lida, contr, source, contact = st.tabs(["Home", "LIDA", "Contribute", "Source", "Support"])
     # Hiển thị nội dung dựa trên mục đã chọn
-    if selected == "Home":
+    with home:
         st.title(" :violet[NTViz] _:gray[A Data Recommendation Systems For EveryOne]❤️!_")
         st.subheader(":grey[Tại sao chúng tôi xây dựng dự án này?]")
         st.markdown(""" 
@@ -30,18 +31,52 @@ def show_home():
                     Với số lượng dữ liệu ngày càng đa dạng và phức tạp, việc chỉ đọc các dữ liệu thô thu thập từ thực tế không thể giúp chúng ta hiểu hết được giá trị của chúng. Làm thế nào để nắm bắt thông tin một cách nhanh chóng và dễ dàng nhất?\n
                     :point_right: Đáp án chính là :violet[**Trực quan hóa dữ liệu**], một công cụ mạnh mẽ giúp chúng ta chuyển hóa dữ liệu thành những hình ảnh dễ hiểu, từ đó đưa ra quyết định chính xác và hiệu quả hơn bao giờ hết. 
                     """)
-        st.image("C:/Users/PC/Desktop/website/material/mhoa.jpg", caption="Hình 1. Minh họa",  use_container_width=True)    
+        st.image("material/outlook/mhoa.jpg", caption="Hình 1. Minh họa",  use_container_width=True)    
 
+
+
+        # Lí do vì sao trực quan hóa dữ liệu quan trọng
+        st.markdown(""" 
+                ### :grey[Mức độ quan trọng của :violet[Trực Quan Hóa Dữ Liệu]]:
+                **1. Truyền tải thông tin một cách hiệu quả:**
+                - Trực quan hóa giúp biểu diễn dữ liệu phức tạp dưới dạng hình ảnh dễ hiểu, giúp người xem nắm bắt nhanh thông tin mà không cần phân tích sâu các bảng số liệu.
+
+                **2. Hỗ trợ ra quyết định:**
+                - Các biểu đồ và hình ảnh trực quan giúp người ra quyết định nhận diện xu hướng, phát hiện vấn đề và đưa ra giải pháp phù hợp dựa trên dữ liệu cụ thể.
+
+                **3. Phát hiện xu hướng và mối quan hệ:**
+                - Trực quan hóa giúp làm nổi bật các xu hướng, mẫu hình (patterns), và mối quan hệ ẩn giữa các biến trong dữ liệu mà có thể bị bỏ qua khi chỉ nhìn vào dữ liệu thô.
+
+                **4. Giao tiếp và thuyết phục:**
+                - Các biểu đồ và hình ảnh trực quan hỗ trợ việc thuyết phục người khác, đặc biệt là trong các bài thuyết trình, báo cáo, hoặc tranh luận dựa trên dữ liệu.
+
+                **5. Nâng cao khả năng phân tích dữ liệu:**
+                - Giúp các nhà phân tích khám phá dữ liệu sâu hơn, phát hiện các giá trị bất thường (outliers) hoặc các khía cạnh chưa từng được xem xét, từ đó đưa ra những phân tích toàn diện hơn.
+                
+                **6. Tăng khả năng tương tác với dữ liệu:**
+                -  Tương tác với dữ liệu thông qua hình ảnh, và các thông tin số liệu quan trọng như doanh số, phân phối,...
+                
+                **7. Tạo cảm giác hứng thú với dữ liệu:**
+                - Hình ảnh sinh động và trực quan không chỉ làm cho dữ liệu bớt khô khan mà còn giúp người không chuyên có thể tìm hiểu sâu hơn về dữ liệu và các vấn đề liên quan 1 cách đơn giản, dễ hiểu hơn.
+                
+                """)
+        st.image("material/outlook/ex_tquan.jpg", caption="Hình 2. Ví dụ Trực Quan")
+        
+        
+        
+        st.divider()
+        st.markdown("### :grey[Bài Toán Chính:]")
         st.markdown("""
                     Tuy nhiên, nếu 1 người không có các kỹ năng lập trình muốn tìm hiểu sâu, rút trích thông tin từ bộ dữ liệu của mình thì họ sẽ vấp phải các khó khăn như:
                     - Nên trực quan hóa theo biến nào? Biểu đồ đó có ý nghĩa gì?
                     - Nên chọn biểu đồ nào để trực quan hóa cho bộ dữ liệu?
                     - Làm thế nào để hiện thực hóa biểu đồ đó khi không có kỹ năng lập trình? \n
                     Nhận thấy được điều đó, chúng tôi ấp ủ kế hoạch và tìm hiểu các tool có thể hỗ trợ :blue["Những người không chuyên về dữ liệu"] một cách đơn giản, và ít tốn kém nhất.
+                    ##### :point_right: Bằng cách xây dựng :violet[Hệ Thống Gợi Ý Biểu Đồ] dựa trên bộ dữ liệu của người dùng.
                     """)
     
 
-    elif selected == "LIDA":
+    with lida:
         st.header(":grey[LIDA: A Tool for Automatic Generation of Grammar-Agnostic Visualizations and Infographics using Large Language Models]")
         st.markdown("### *Tổng quan về LIDA:*")
         st.markdown(""" 
@@ -75,7 +110,7 @@ def show_home():
             - Rationale:
                 - Biểu đồ mang ý nghĩa như thế nào? Đưa ra những "insight" gì?        
         """)
-        st.image("C:/Users/PC/Desktop/website/lida/goals.png", caption="Hình 2. Cấu trúc của Goals",
+        st.image("material/lida/goals.png", caption="Hình 2. Cấu trúc của Goals",
                 use_container_width=True)
         
         st.markdown("""
@@ -91,7 +126,7 @@ def show_home():
             
             Thực hiện vẽ, tạo biểu đồ cụ thể.
         """)
-        st.image("C:/Users/PC/Desktop/website/lida/example.png", caption="Hình 3. Biểu đồ tương ứng", 
+        st.image("material/lida/example.png", caption="Hình 3. Biểu đồ tương ứng", 
                 use_container_width=True)   
         st.markdown("""
         3. **Infographic:**
@@ -99,14 +134,14 @@ def show_home():
             - Sử dụng text-conditioned image-to-image ( khả năng tạo ảnh từ văn bản trong các mô hình khuếch tán) (Rombach và cộng sự, 2022), được triển khai qua API của thư viện Peacasso (Dibia, 2022).
             """)
         
-        st.image("C:/Users/PC/Desktop/website/lida/infograp.png", 
+        st.image("material/lida/infograp.png", 
                 caption="Hình 4: Minh họa infographic của LIDA",
                 use_container_width=True)
         
         st.divider()
         
         # Thông tin LIDA hỗ trợ các nền tảng nào
-        
+        # Các điều kiện cần lưu ý
         st.markdown("### _:grey[📌 Những lưu ý quan trọng:]_")
         st.markdown(""" 
                     ##### 1. Python:
@@ -133,7 +168,7 @@ def show_home():
                                 4. Đặt thêm giới hạn cho số lượng tokens tạo mới, max_tokens cho nó, nếu không thì máy sẽ mất nhiều thời gian để có thể chạy ra kết quả.
                     """)
 
-    elif selected == "Contribute":
+    with contr:
         st.subheader("_:grey[Sự Đóng góp của NTViz]_")
         st.markdown(""" 
                     Đề tài này đóng góp vào việc hỗ trợ những người làm trong các lĩnh vực cần nhiều thông tin, các tệp dữ liệu nhưng không chuyên, hoặc các bạn học sinh, sinh viên không có kiến thức nền về Phân Tích Dữ Liệu dễ dàng tiếp cận và trực quan hoá các tập tin của mình nhằm phục vụ cho mục đích của bản thân.
@@ -153,7 +188,7 @@ def show_home():
                     - Trong LIDA, khi nhập đầu vào bộ dữ liệu thì LIDA không có tính năng "Cleaning DATA" sẵn cho người dùng.
                     - Tính năng "summarize" của nó chưa đủ rõ ràng và trực diện. Ví dụ:
                     """)
-        st.image("C:/Users/PC/Desktop/website/lida/summary.png", 
+        st.image("material/lida/summary.png", 
                 caption="Hình 1. Ví dụ về bảng tóm tắt của 1 cột dữ liệu.",
                 use_container_width=True)
         st.markdown(""" 
@@ -164,17 +199,19 @@ def show_home():
                     - Tích hợp thư viện `ydata_profiling` để đưa ra những thông tin chung trực diện hơn cho bộ dữ liệu.
                     - Trước khi LIDA **"summarize"** và **"goals explorer"**, chúng tôi sẽ tích hợp thêm 1 hàm giúp người dùng kiểm tra dữ liệu đã sạch hay chưa, nếu chưa thì chúng tôi sẽ làm sạch giúp họ.
                     """)
-        st.image("C:/Users/PC/Desktop/website/lida/overview.png", 
+        st.image("material/lida/overview.png", 
                 caption="Hình 2. Minh Họa Overview",
                 use_container_width=True)
 
-    elif selected == "Source":
-        st.subheader(":grey[Nguồn tham khảo]")
-        st.markdown("[LIDA: Automatic Grammar-Agnostic Visualizations](https://aclanthology.org/2023.acl-demo.11)")
-        st.write("_:violet[Cảm ơn đội ngũ LIDA và Cohere đã truyền cảm hứng để tạo ra NTViz ❤️.]_")
+    # Nguồn tham khảo
+    with source:
+        st.subheader("_:grey[Nguồn Tham Khảo và Ghi Nhận:]_")
+        st.markdown("[LIDA: A Tool for Automatic Generation of Grammar-Agnostic Visualizations and Infographics using Large Language Models](https://aclanthology.org/2023.acl-demo.11) (Dibia, ACL 2023)")
+        st.markdown("[COHERE, API KEY](https://dashboard.cohere.com/?_gl=1*5bkinq*_gcl_au*MTQ5NTExMTE3MS4xNzMwOTcxODg1*_ga*NTc0ODQ4NDk0LjE3MzA5NzE4ODI.*_ga_CRGS116RZS*MTczNDI0Njk5Ni4yMi4wLjE3MzQyNDY5OTYuNjAuMC4w)")
+        st.write("_:violet[Chúng tôi xin trân trọng gửi lời cảm ơn chân thành đến :blue[LIDA] và :blue[COHERE] vì đã cung cấp các công cụ và dịch vụ tuyệt vời, giúp dự án này trở nên khả thi. Không có sự hỗ trợ của họ, chúng tôi không thể đạt được kết quả như hiện tại. ❤️]_")    
 
-    elif selected == "Support":
-        st.subheader(":grey[Liên hệ]")
+    with contact:
+        st.subheader("📞 :grey[Liên hệ]")
         st.markdown("""
         - **Email**: support@ntviz.com
         - **Website**: [NTViz](https://ntviz.com)
