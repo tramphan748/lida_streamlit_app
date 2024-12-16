@@ -1,8 +1,5 @@
 import streamlit as st
 import pandas as pd
-from ydata_profiling import ProfileReport
-from streamlit_pandas_profiling import st_profile_report
-from streamlit_option_menu import option_menu
 from dotenv import load_dotenv
 
 # Import thư viện LIDA
@@ -23,6 +20,10 @@ load_dotenv()
 def initialize_lida_and_cohere(api_key):
     """
     Khởi tạo LIDA và Cohere với cấu hình mặc định
+    
+    Agrs:
+        api_key (object): mã API của người dùng trên nền tảng Cohere
+        
     """
     try:
         # Khởi tạo Cohere với API Key và thiết lập với LIDA
@@ -52,6 +53,14 @@ def initialize_lida_and_cohere(api_key):
 def process_data_summary(df, lida, textgen_config):
     """
     Thực hiện tóm tắt và đặt mục tiêu cho dữ liệu
+    
+    Args:
+        df (dataframe): bộ dữ liệu đầu vào
+        lida : thư viện lida đóng vai trò là người xử lý các tasks
+        textgen_config: cấu hình của TextGeneration đối với LIDA
+    
+    Returns:
+        Hình ảnh các biểu đồ dựa trên summary mà người dùng yêu cầu
     """
     st.dataframe(df.head())
     
@@ -64,6 +73,11 @@ def process_data_summary(df, lida, textgen_config):
         st.success("Đã làm sạch dữ liệu!")
     else:
         st.success("Dữ liệu không có giá trị rỗng/trùng lặp.")
+    if len(df.columns) >= 10:
+        st.warning(
+                    "Lưu ý: LIDA hoạt động tốt nhất với bộ dữ liệu có dưới 10 cột. "
+                    "Nếu bộ dữ liệu của bạn có hơn 10 cột, LIDA vẫn sẽ chạy nhưng tạo ra kết quả không đẹp mắt, hữu ích."
+                    )
     
     summary = lida.summarize(df, summary_method="default", textgen_config=textgen_config)
     goals = lida.goals(summary, n=5, textgen_config=textgen_config)
@@ -80,7 +94,15 @@ def process_data_summary(df, lida, textgen_config):
 def generate_visualizations(lida, summary, goals, textgen_config):
     """
     Tạo và hiển thị các biểu đồ theo mục tiêu
+    Args:
+        df (dataframe): bộ dữ liệu đầu vào
+        lida : thư viện lida đóng vai trò là người xử lý các tasks
+        textgen_config: cấu hình của TextGeneration đối với LIDA
+    
+    Returns:
+        Hình ảnh các biểu đồ dựa trên summary mà người dùng yêu cầu
     """
+    
     library = "seaborn"
     n = 5
     
@@ -104,6 +126,15 @@ def generate_visualizations(lida, summary, goals, textgen_config):
 def process_user_query_graphs(df, lida, textgen_config):
     """
     Tạo biểu đồ dựa trên truy vấn người dùng
+    
+    Args:
+        df (dataframe): bộ dữ liệu đầu vào
+        lida : thư viện lida đóng vai trò là người xử lý các tasks
+        textgen_config: cấu hình của TextGeneration đối với LIDA
+    
+    Returns:
+        Hình ảnh các biểu đồ dựa trên summary mà người dùng yêu cầu
+        
     """
     user_query = st.text_area(label="User Query:")
     k = st.number_input(label="Số biểu đồ bạn muốn tạo:", min_value=1, max_value=5, step=1)
@@ -123,6 +154,8 @@ def process_user_query_graphs(df, lida, textgen_config):
                     "seaborn", 
                     textgen_config
                 )
+            if len(query_charts) < k:
+                    st.error(f"Xin lỗi. Chúng tôi hiện tại chỉ có thể gợi ý cho bạn {len(query_charts)} biểu đồ.")
                     
         except Exception as e:
             st.error(f"Đã xảy ra lỗi khi khởi tạo LIDA hoặc Cohere: {e}")
@@ -130,7 +163,16 @@ def process_user_query_graphs(df, lida, textgen_config):
 def process_viz_recommend(df, lida, textgen_config):
     """
     Đề xuất biểu đồ dựa trên tóm tắt dữ liệu
+    
+    Args:
+        df (dataframe): bộ dữ liệu đầu vào
+        lida : thư viện lida đóng vai trò là người xử lý các tasks
+        textgen_config: cấu hình của TextGeneration đối với LIDA
+    
+    Returns:
+        Hình ảnh các biểu đồ dựa trên summary mà người dùng yêu cầu
     """
+    
     k = st.number_input(label="Số biểu đồ bạn muốn tạo:", min_value=1, max_value=5, step=1)
     
     if st.button(label="Tạo biểu đồ"):
@@ -155,7 +197,7 @@ def process_viz_recommend(df, lida, textgen_config):
                     textgen_config=textgen_config
                 )
                 
-                st.write(f"Gợi ý: {len(recommended_charts)} charts")
+                st.write(f"Số biểu đồ gợi ý: {len(recommended_charts)}")
                 for chart in recommended_charts:
                     display_charts(
                         lida, 
