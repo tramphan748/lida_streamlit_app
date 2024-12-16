@@ -1,0 +1,13 @@
+[[pages]]
+path = "home.py"
+name = "Dashboard"
+
+[[pages]]
+path = "API_key.py"
+name = "API KEY"
+
+
+[[pages]]
+path = "task.py"
+name = "LIDA Tasks"
+

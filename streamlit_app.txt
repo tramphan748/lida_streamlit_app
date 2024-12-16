@@ -1,0 +1,15 @@
+streamlit_app/
+├── main.py              			# File chính để chạy ứng dụng
+├── home.py 							# File chứa trang chủ của project
+├── API_key.py 						# File hướng dẫn lấy API từ Cohere (hoặc OpenAI, Hugging Face)
+├── helpers/
+│   ├── __init__.py          	# Đánh dấu thư mục helpers là một package
+│   ├── helpers.py 				# Chứa các hàm trợ giúp (e.g., xử lý API, tải tệp, cài đặt config)
+├── tasks.py							# Xử lý chức năng Overview, Summarize & Goals, Recommend, Question-based Graph
+├── assets/
+│   ├── logo.png         			# Hình ảnh logo hoặc tài nguyên tĩnh
+├── requirements.txt     			# Liệt kê các thư viện cần thiết
+├── .streamlit/
+│   ├── config.toml      			# Tệp cấu hình theme của Streamlit
+│   ├── pages.toml   
+│   ├── pages_sections.toml       			

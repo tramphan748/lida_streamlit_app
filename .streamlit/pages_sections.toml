@@ -1,0 +1,40 @@
+[[pages]]
+name = "Trang Chủ"
+is_section = true
+icon = "🏠"
+
+[[pages]]
+path = "home.py"
+name = "Dashboard"
+icon = ""
+
+[[pages]]
+name = "API Key"
+is_section = true
+icon = "🔑"
+
+[[pages]]
+path = "API_key.py"
+name = "Hướng dẫn lấy API KEY"
+icon = ""
+
+[[pages]]
+name = "Overview"
+is_section = true
+icon = "📑"
+
+[[pages]]
+path = "overview.py"
+name = "Data Report"
+icon = ""
+
+
+[[pages]]
+name = "Các Chức Năng của LIDA"
+is_section = true
+icon = "📊"
+
+[[pages]]
+path = "task.py"
+name = "LIDA Tasks"
+icon = ""
