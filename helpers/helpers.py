@@ -130,7 +130,7 @@ def display_charts(
     buffered = BytesIO()
     img.save(buffered, format="PNG")
     img_str = base64.b64encode(buffered.getvalue()).decode()
-    href = f'<a href="data:image/png;base64,{img_str}" download="chart.png">Download chart 👈(ﾟヮﾟ👈)</a>'
+    href = f'<a href="data:image/png;base64,{img_str}" download="chart.png">˚⋆ ʕっ• ᴥ • ʔっ Download Chart ˚⋆</a>'
     st.markdown(href, unsafe_allow_html=True)
 
     # Hiển thị code
