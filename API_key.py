@@ -1,33 +1,33 @@
 import streamlit as st
 
 def show_API_key():
-    st.header("_:blue[COHERE API KEY:]_")
+    st.header("── .✦_:blue[COHERE API KEY:]_")
     st.markdown("""
-                Sau khi thử nghiệm với nhiều model :blue-background[large language model] khác nhau. Chúng tôi nhận thấy model từ nền tảng cohere :violet[command-xlarge-nightly] có hiệu suất tốt nhất. 
-                Do đó chúng tôi sẽ hướng dẫn các bạn *step-by-step* kéo api cohere về.
+                After experimenting with various :blue-background[large language models], we found that the :violet[command-xlarge-nightly] model from Cohere provides the best performance. 
+                Here, we’ll guide you *step-by-step* on how to retrieve your Cohere API key.
                 """)
     st.divider()
-    st.markdown("#### Bước 1: Truy cập vào đường dẫn sau: *[cohere website](https://dashboard.cohere.com/welcome/login)* và đăng ký nếu bạn chưa có tài khoản.")
-    st.image("C:/Users/PC/Desktop/SEMINAR/streamlit_app/assets/cohere-web/log_in.png", caption="Hình 1.Giao diện đăng nhập")
+    st.markdown("#### Step 1: Visit this link: *[Cohere Website](https://dashboard.cohere.com/welcome/login)* and sign up if you don’t already have an account.")
+    st.image("material/cohere-web/log_in.png", caption="Figure 1. Login Interface")
 
     st.markdown("""
-                Sau khi đăng nhập thành công, cohere sẽ hiện giao diện *dashboard* như sau:
+                Once you’ve logged in successfully, you’ll see the Cohere *dashboard* as shown below:
                 """)
-    st.image("C:/Users/PC/Desktop/SEMINAR/streamlit_app/assets/cohere-web/cohere-dashboard.png", caption="Hình 2.Giao diện dashboard")
+    st.image("material/cohere-web/cohere-dashboard.png", caption="Figure 2. Dashboard Interface")
 
     st.divider()
-    st.markdown("#### Bước 2: Ở bên trái dashboard ta sẽ thấy mục :gray[API KEY]. Chọn vào mục đó: ")
-    st.image("C:/Users/PC/Desktop/SEMINAR/streamlit_app/assets/cohere-web/cohere-b2.png", caption="Hình 3.API KEY")
+    st.markdown("#### Step 2: On the left side of the dashboard, look for the :gray[API KEY] section. Click on it: ")
+    st.image("material/cohere-web/cohere-b2.png", caption="Figure 3. API KEY Section")
 
     st.divider()
-    st.markdown("#### Bước 3: Lưu :blue[API KEY] của mình về và nhập nó vào phần :blue[Nhập API KEY:] ở trang :red[Chức năng]" )
-    st.image("C:/Users/PC/Desktop/SEMINAR/streamlit_app/assets/cohere-web/cohere-b3.png", caption="Hình 4. Lưu key về để sử dụng cho các tác vụ tiếp theo.")
+    st.markdown("#### Step 3: Save your :blue[API KEY] and enter it in the :blue[Enter API KEY:] field on the :red[Features] page.")
+    st.image("material/cohere-web/cohere-b3.png", caption="Figure 4. Save your API key to use for future tasks.")
 
     st.warning("""
-            **Một số lưu ý khi sử dụng :violet[COHERE]:**  \n
-            Vì đây là dự án dành cho những bạn không chuyên về ngành dữ liệu do đó:
-            - Ưu tiên cho các giải pháp ít tốn kém nhất.
-            - Đối với dự án của chúng tôi, :violet[COHERE] cho người dùng gửi yêu cầu tối đa 1000 lần mỗi tháng.
+            **A few notes when using :violet[COHERE]:**  \n
+            Since this project is designed for users who may not specialize in data-related fields:  
+            - We prioritize cost-effective solutions.  
+            - For our project, :violet[COHERE] allows up to 1000 free requests per month.
             """)
 
 show_API_key()
