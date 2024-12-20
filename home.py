@@ -1,222 +1,243 @@
 import streamlit as st
+import base64
 from streamlit_option_menu import option_menu
 
+# import cover page
+file_ = open("material/outlook/Global.gif", "rb")
+contents = file_.read()
+data_url = base64.b64encode(contents).decode("utf-8")
+file_.close()
+
+st.markdown(
+    f'<img src="data:material/outlook/Global.gif;base64,{data_url}" alt="cover">',
+    unsafe_allow_html=True,
+)
+
+# Homepage
 def show_home():
-    # Tạo menu với option_menu
-    # selected = option_menu( 
-    #     menu_title="NTViz Menu",
-    #     options=["Home", "LIDA", "Contribute", "Source", "Support"],  # Các mục
-    #     icons=["house", "bar-chart", "hand-thumbs-up", "book", "envelope"],  # Các biểu tượng
-    #     menu_icon="cast",  # Biểu tượng menu
-    #     default_index=0,  # Mục mặc định
-    #     orientation="horizontal"  # Menu ngang
-    # )
-
-    home, lida, contr, source, contact = st.tabs(["Home", "LIDA", "Contribute", "Source", "Support"])
-    # Hiển thị nội dung dựa trên mục đã chọn
+    home, lida, innova, contr, source, contact = st.tabs(["Home", "LIDA", "Innovation", "Contribute", "Source", "Support"])
+    
+    # Display content based on the selected tab
     with home:
-        st.title(" :violet[NTViz] _:gray[A Data Recommendation Systems For EveryOne]❤️!_")
-        st.subheader(":grey[Tại sao chúng tôi xây dựng dự án này?]")
+        st.subheader(" :violet[NTViz] _:gray[A Data Recommendation System For Everyone]_ 🦾")
+        st.markdown("##### _Why did we build this project?_")
         st.markdown(""" 
-                    _:blue[**"Dữ liệu là loại tiền tệ có giá trị nhất"**]_, là điều mà ta không thể nào phủ nhận được vì
-                    chúng có các vai trò chủ chốt trong nhiều ngành nghề, lĩnh vực như:
-                    - **Hỗ trợ ra quyết định:** cung cấp thông tin và phân tích để giúp tổ chức và cá nhân đưa ra các quyết định đáng tin cậy, từ chiến lược kinh doanh đến chi tiết về sản phẩm và dịch vụ.
-                    - **Nâng cao hiệu quả hoạt động:** giúp tối ưu hóa hoạt động bằng cách cung cấp thông tin về hiệu suất, quy trình và khách hàng, giúp tổ chức điều chỉnh và cải thiện hoạt động để đạt hiệu quả cao hơn.
-                    - **Phát triển sản phẩm và dịch vụ:** cung cấp thông tin về nhu cầu và phản hồi từ thị trường, giúp các doanh nghiệp hiểu rõ hơn về mong đợi của khách hàng và phát triển các sản phẩm và dịch vụ phù hợp.
-                    - **Nghiên cứu và phát triển công nghệ:** là nguồn tài nguyên quan trọng cho các nghiên cứu khoa học và phát triển công nghệ, giúp nhà nghiên cứu phân tích và tạo ra các khám phá mới.
-                    - **Tăng cường trải nghiệm khách hàng:** giúp cá nhân hóa trải nghiệm khách hàng, từ sản phẩm đến dịch vụ chăm sóc khách hàng, dựa trên thông tin cá nhân.                    
-                    - **Giảm thiểu rủi ro và gian lận:** giúp phát hiện và ngăn chặn các hành vi gian lận và rủi ro trong kinh doanh và tài chính, thông qua phân tích các mô hình và xu hướng không bình thường. \n
-                    ...và còn nhiều lợi ích khác từ dữ liệu có thể mang lại cho chúng ta. \n
-                    Với số lượng dữ liệu ngày càng đa dạng và phức tạp, ta không thể nào hiểu chúng hết chỉ bằng cách đọc các dữ liệu thô được thu thập từ thực tế.
-                    Với số lượng dữ liệu ngày càng đa dạng và phức tạp, việc chỉ đọc các dữ liệu thô thu thập từ thực tế không thể giúp chúng ta hiểu hết được giá trị của chúng. Làm thế nào để nắm bắt thông tin một cách nhanh chóng và dễ dàng nhất?\n
-                    :point_right: Đáp án chính là :violet[**Trực quan hóa dữ liệu**], một công cụ mạnh mẽ giúp chúng ta chuyển hóa dữ liệu thành những hình ảnh dễ hiểu, từ đó đưa ra quyết định chính xác và hiệu quả hơn bao giờ hết. 
+                    _:blue[**"Data is the most valuable currency"**]_, is an undeniable truth as it plays a key role in various industries and fields, such as:
+                    - **Decision-making support:** Providing information and analysis to help organizations and individuals make reliable decisions, from business strategies to product and service details.
+                    - **Improving operational efficiency:** Helping optimize processes by providing insights into performance, procedures, and customer data, enabling organizations to adjust and enhance efficiency.
+                    - **Developing products and services:** Offering insights into market demand and feedback, aiding businesses in understanding customer expectations and developing suitable products and services.
+                    - **Research and technological development:** Serving as a vital resource for scientific research and technological advancements, enabling researchers to analyze and create new discoveries.
+                    - **Enhancing customer experience:** Personalizing customer experiences, from product design to customer service, based on individual information.
+                    - **Risk and fraud minimization:** Detecting and preventing fraudulent activities and risks in business and finance through analyzing abnormal patterns and trends.\n
+                    ...and many more benefits that data can bring us.\n
+                    With increasingly diverse and complex data, it is impossible to fully understand it just by reading the raw data collected from reality.
+                    How can we quickly and easily grasp the information? \n
+                    :point_right: The answer lies in :violet[**Data Visualization**], a powerful tool that helps transform data into comprehensible visuals, enabling us to make accurate and effective decisions faster than ever.
                     """)
-        st.image("material/outlook/mhoa.jpg", caption="Hình 1. Minh họa",  use_container_width=True)    
+        st.image("material/outlook/mhoa.jpg", caption="Figure 1. Illustration", use_container_width=True)    
 
-
-
-        # Lí do vì sao trực quan hóa dữ liệu quan trọng
+        # Why data visualization is important
         st.markdown(""" 
-                ### :grey[Mức độ quan trọng của :violet[Trực Quan Hóa Dữ Liệu]]:
-                **1. Truyền tải thông tin một cách hiệu quả:**
-                - Trực quan hóa giúp biểu diễn dữ liệu phức tạp dưới dạng hình ảnh dễ hiểu, giúp người xem nắm bắt nhanh thông tin mà không cần phân tích sâu các bảng số liệu.
+                ### 📍 :grey[The Importance of :violet[Data Visualization]]:
+                **1. Conveying information effectively:**
+                - Visualization represents complex data in easy-to-understand images, allowing viewers to quickly grasp information without analyzing detailed data tables.
 
-                **2. Hỗ trợ ra quyết định:**
-                - Các biểu đồ và hình ảnh trực quan giúp người ra quyết định nhận diện xu hướng, phát hiện vấn đề và đưa ra giải pháp phù hợp dựa trên dữ liệu cụ thể.
+                **2. Supporting decision-making:**
+                - Charts and visuals help decision-makers recognize trends, identify issues, and provide suitable solutions based on specific data.
 
-                **3. Phát hiện xu hướng và mối quan hệ:**
-                - Trực quan hóa giúp làm nổi bật các xu hướng, mẫu hình (patterns), và mối quan hệ ẩn giữa các biến trong dữ liệu mà có thể bị bỏ qua khi chỉ nhìn vào dữ liệu thô.
+                **3. Discovering trends and relationships:**
+                - Visualization highlights trends, patterns, and hidden relationships between variables in data that may be overlooked when only examining raw data.
 
-                **4. Giao tiếp và thuyết phục:**
-                - Các biểu đồ và hình ảnh trực quan hỗ trợ việc thuyết phục người khác, đặc biệt là trong các bài thuyết trình, báo cáo, hoặc tranh luận dựa trên dữ liệu.
+                **4. Communicating and persuading:**
+                - Charts and visuals assist in persuading others, particularly in presentations, reports, or data-driven arguments.
 
-                **5. Nâng cao khả năng phân tích dữ liệu:**
-                - Giúp các nhà phân tích khám phá dữ liệu sâu hơn, phát hiện các giá trị bất thường (outliers) hoặc các khía cạnh chưa từng được xem xét, từ đó đưa ra những phân tích toàn diện hơn.
-                
-                **6. Tăng khả năng tương tác với dữ liệu:**
-                -  Tương tác với dữ liệu thông qua hình ảnh, và các thông tin số liệu quan trọng như doanh số, phân phối,...
-                
-                **7. Tạo cảm giác hứng thú với dữ liệu:**
-                - Hình ảnh sinh động và trực quan không chỉ làm cho dữ liệu bớt khô khan mà còn giúp người không chuyên có thể tìm hiểu sâu hơn về dữ liệu và các vấn đề liên quan 1 cách đơn giản, dễ hiểu hơn.
-                
+                **5. Enhancing data analysis capabilities:**
+                - Helps analysts delve deeper into data, detect anomalies (outliers), or explore aspects previously unconsidered, leading to more comprehensive analyses.
+
+                **6. Increasing data interaction:**
+                - Enables interaction with data through visuals and vital numerical information such as sales, distributions, etc.
+
+                **7. Creating excitement about data:**
+                - Vibrant and intuitive visuals not only make data less dry but also help non-specialists delve deeper into data and related issues simply and understandably.
                 """)
-        st.image("material/outlook/ex_tquan.jpg", caption="Hình 2. Ví dụ Trực Quan")
-        
-        
+        st.image("material/outlook/ex_tquan.jpg", caption="Figure 2. Visualization Example")
         
         st.divider()
-        st.markdown("### :grey[Bài Toán Chính:]")
-        st.markdown("""
-                    Tuy nhiên, nếu 1 người không có các kỹ năng lập trình muốn tìm hiểu sâu, rút trích thông tin từ bộ dữ liệu của mình thì họ sẽ vấp phải các khó khăn như:
-                    - Nên trực quan hóa theo biến nào? Biểu đồ đó có ý nghĩa gì?
-                    - Nên chọn biểu đồ nào để trực quan hóa cho bộ dữ liệu?
-                    - Làm thế nào để hiện thực hóa biểu đồ đó khi không có kỹ năng lập trình? \n
-                    Nhận thấy được điều đó, chúng tôi ấp ủ kế hoạch và tìm hiểu các tool có thể hỗ trợ :blue["Những người không chuyên về dữ liệu"] một cách đơn giản, và ít tốn kém nhất.
-                    ##### :point_right: Bằng cách xây dựng :violet[Hệ Thống Gợi Ý Biểu Đồ] dựa trên bộ dữ liệu của người dùng.
+        st.markdown("### 🔴 :grey[The Main Problem:]")
+        st.markdown(""" 
+                    However, if someone without programming skills wants to explore and extract insights from their dataset, they might face challenges such as:
+                    - Which variables should be visualized? What does that chart signify?
+                    - Which chart should be chosen for the dataset?
+                    - How to create that chart without programming skills? \n
+                    Recognizing these difficulties, we aim to build and explore tools that can support :blue["non-data professionals"] in the simplest and most cost-effective way possible.
+                    ##### :point_right: By developing a :violet[Chart Recommendation System] based on user-provided datasets.
                     """)
     
-
     with lida:
-        st.header(":grey[LIDA: A Tool for Automatic Generation of Grammar-Agnostic Visualizations and Infographics using Large Language Models]")
-        st.markdown("### *Tổng quan về LIDA:*")
+        st.header(" ♛:grey[LIDA: A Tool for Automatic Generation of Grammar-Agnostic Visualizations and Infographics using Large Language Models]")
+        st.markdown("### *Overview of LIDA:*")
         st.markdown(""" 
-                    - LIDA là nền tảng tạo biểu đồ dựa trên LLM, thuộc sở hữu của Microsoft, gồm 4 module chính: Summarize, Goal Explorer, VisGenerator và Infographic
-                    - Hệ thống sử dụng LLM để tóm tắt dữ liệu, tạo mục tiêu, sinh mã và tạo biểu đồ tự động
+                    - LIDA is a chart-generation platform powered by LLM, owned by Microsoft, consisting of four main modules: Summarize, Goal Explorer, VisGenerator, and Infographic.
+                    - The system uses LLM to summarize data, generate objectives, produce code, and create visualizations automatically.
                     """)
         st.markdown(""" 
-                    ##### Ưu điểm:
-                    - Tự động tạo giả thuyết/mục tiêu từ dữ liệu, hỗ trợ nhiều ngữ pháp trực quan, và có khả năng tạo infographic
-                    - Hiệu quả hơn các hệ thống hiện có, đơn giản hóa quá trình tạo biểu đồ phức tạp
-                    - Giới thiệu các chỉ số đánh giá độ tin cậy (VER) và chất lượng trực quan hóa (SEVQ)
+                    ##### Advantages:
+                    - Automatically generates hypotheses/objectives from data, supports multiple visualization grammars, and can create infographics.
+                    - More efficient than existing systems, simplifying the creation of complex charts.
+                    - Introduces metrics to evaluate reliability (VER) and visualization quality (SEVQ).
                     """)
         st.markdown(""" 
-                    ##### Nhược điểm:
-                    - Cần nghiên cứu thêm về tác động của độ phức tạp tác vụ và lựa chọn ngôn ngữ lập trình đến hiệu suất
-                    - Yêu cầu nhiều tài nguyên tính toán, cần cải thiện về triển khai và độ trễ
-                    - Cần phát triển các tiêu chuẩn đánh giá toàn diện hơn và nghiên cứu về khả năng giải thích hành vi của hệ thống
+                    ##### Disadvantages:
+                    - Requires further research on task complexity and programming language choices for better performance.
+                    - Demands substantial computational resources, with room for improvement in implementation and latency.
+                    - Needs more comprehensive evaluation standards and research on explaining system behaviors.
                     """)
         
-        st.markdown("### *Chi tiết các hoạt động của LIDA:*")
+        st.markdown("### ✪ *Details of LIDA's activities:*")
         st.markdown(""" 
         1. **Summarize and Goals:** \n
-            *a. Summarize dựa theo rule và LLM:*
-            -    Dùng LLM để tạo nên một mô tả ngắn, cô đọng về cái tập dataset qua 2 stage process mà người dùng bỏ vào nhằm định hướng được mục tiêu, hoặc gợi ý, ví dụ như đối với tập dữ liệu này thì mình có thể làm được những gì, như thế nào. \n
+            *a. Summarize based on rules and LLM:*
+            - Utilizes LLM to generate concise summaries of datasets through a two-stage process, providing guidance or suggestions on what can be achieved with the dataset. \n
             *b. Goal Explorer:*
-            -    Nhìn chung trong step này, nó sẽ tạo ra 1 tập file .JSON gồm 3 đối tượng: “question”, “visualization”, “rationale”
-            - Question:
-                - LLM đóng vai trò như người dùng, người hướng dẫn, tự bản thân nó sẽ đi khám phá, tìm hiểu về tập dữ liệu này để đưa ra các giả thuyết như là các câu hỏi
-            - Visualization:
-                - Tên và loại biểu đồ
-            - Rationale:
-                - Biểu đồ mang ý nghĩa như thế nào? Đưa ra những "insight" gì?        
+            - This step creates a JSON file comprising three objects: “question,” “visualization,” “rationale.”
+            - **Question:**
+                - LLM acts as a user or guide, exploring the dataset to propose hypotheses in the form of questions.
+            - **Visualization:**
+                - Specifies chart names and types.
+            - **Rationale:**
+                - Explains the significance of the chart and provides insights.
         """)
-        st.image("material/lida/goals.png", caption="Hình 2. Cấu trúc của Goals",
-                use_container_width=True)
+        st.image("material/lida/goals.png", caption="Figure 2. Structure of Goals", use_container_width=True)
         
-        st.markdown("""
+        st.markdown(""" 
         2. **VisGenerator:**
-        Tạo ra biểu đồ cụ thể, thực hiện dựa theo 3 module con: \n 
+        Generates specific charts through three submodules: \n 
             *a. Code scaffold constructor:* \n
-            Tiến hành thư viện mã scafffolds tương ứng với ngôn ngữ lập trình Scaffolds support `Matplotlib`, `GGPlot`, `Plotly`, `Altair`, `Seaborn`, và `Boken`
+            Creates scaffold libraries corresponding to supported programming languages (e.g., `Matplotlib`, `GGPlot`, `Plotly`, `Altair`, `Seaborn`, and `Bokeh`).
             
             *b. Code generator:* \n
-            Lấy scaffold, bộ dữ liệu mà ta đã tóm tắt, mục tiêu trực quan và prompt mà ta đã dựng sẵn đưa vào LLM
+            Inputs the scaffold, summarized dataset, visualization goals, and prepared prompts into the LLM.
             
-            *c. Code executor:*  
-            
-            Thực hiện vẽ, tạo biểu đồ cụ thể.
+            *c. Code executor:* \n
+            Executes and generates specific charts.
         """)
-        st.image("material/lida/example.png", caption="Hình 3. Biểu đồ tương ứng", 
-                use_container_width=True)   
-        st.markdown("""
+        st.image("material/lida/example.png", caption="Figure 3. Corresponding Chart", use_container_width=True)   
+        st.markdown(""" 
         3. **Infographic:**
-            - Module này được sử dụng để tạo ra những cái đồ thị dựa trên kết quả đầu ra của VisGenerator
-            - Sử dụng text-conditioned image-to-image ( khả năng tạo ảnh từ văn bản trong các mô hình khuếch tán) (Rombach và cộng sự, 2022), được triển khai qua API của thư viện Peacasso (Dibia, 2022).
+            - This module generates charts based on the output of VisGenerator.
+            - Utilizes text-conditioned image-to-image models (e.g., diffusion models) implemented through the Peacasso library (Dibia, 2022).
             """)
         
-        st.image("material/lida/infograp.png", 
-                caption="Hình 4: Minh họa infographic của LIDA",
-                use_container_width=True)
+        st.image("material/lida/infograp.png", caption="Figure 4: LIDA's Infographic Example", use_container_width=True)
         
         st.divider()
         
-        # Thông tin LIDA hỗ trợ các nền tảng nào
-        # Các điều kiện cần lưu ý
-        st.markdown("### _:grey[📌 Những lưu ý quan trọng:]_")
-        st.markdown(""" 
+        # Information on LIDA-supported platforms
+        
+        with st.expander(label="_:grey[📌 Important Notes:]_"):
+            st.markdown(""" 
                     ##### 1. Python:
-                    LIDA yêu cầu Python từ version 3.10 trở lên.
-                    ##### 2. Dữ liệu: 
-                    Phù hợp nhất với tập dữ liệu có <= 10 cột. Đối với dữ liệu lớn hơn, cần xử lý trước (chọn cột phù hợp).
-                    ##### 3. Khả năng hoạt động: 
-                    LIDA yêu cầu dữ liệu ở định dạng như .csv hoặc .json (danh sách đối tượng).
-                    ##### 4. Hiệu quả: 
-                    LIDA hoạt động tốt hơn với các LLM lớn (GPT-3.5, GPT-4). Các mô hình nhỏ hơn có thể không theo sát hướng dẫn tốt.
-                    ##### 5. Độ chính xác: 
-                    Tỷ lệ lỗi < 3.5% trên 2200 biểu đồ được tạo, thấp hơn mức cơ bản (>10%).
+                    LIDA requires Python version 3.10 or higher.
+                    ##### 2. Data: 
+                    Best suited for datasets with ≤ 10 columns. For larger datasets, preprocessing is necessary (select relevant columns).
+                    ##### 3. Functionality: 
+                    LIDA works with .csv or .json format datasets.
+                    ##### 4. Efficiency: 
+                    LIDA performs best with large LLMs (GPT-3.5, GPT-4). Smaller models may not follow instructions as effectively.
+                    ##### 5. Accuracy: 
+                    Error rate < 3.5% across 2200 generated charts, significantly lower than the baseline (>10%).
                     ##### 6. Large Language Model: 
-                    LIDA sử dụng các mô hình ngôn ngữ lớn như 1 người quản lý giúp người dùng sử dụng các tác vụ của nó.
-                    - OpenAI (sử dụng bằng cách kéo API KEY từ trang web)
-                    - COHERE (là nền tảng chính mà chúng tôi sử dụng)
-                    - Các LLM trên HUGGING FACE như là: [microsoft/Phi-3-mini-128k-instruct](https://huggingface.co/microsoft/Phi-3-mini-128k-instruct) hoặc [meta-llama/Llama-3.2-3B-Instruct](https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct)
-                        - Lưu ý: 
-                            - Nếu như máy tính của bạn không có GPU thì chúng tôi khuyên bạn hãy chạy trên các phần mềm thay thế như Google Colab, Kaggle.
-                            - Nếu bạn muốn trải nghiệm các model trên HUGGING FACE thì các model cần đạt các điều kiện sau:
-                                1. Được huấn luyện với tác vụ **text-generation**, đưa tập dữ liệu về định dạng **.json** thì mới hợp lệ.
-                                2. **max_tokens_length > 1024**
-                                3. **1B <=  Số parameters  <= 4B** (vì GPU P100 hoặc T4 chỉ có thể chạy được model có số parameters nhỏ hơn 4B)
-                                4. Đặt thêm giới hạn cho số lượng tokens tạo mới, max_tokens cho nó, nếu không thì máy sẽ mất nhiều thời gian để có thể chạy ra kết quả.
-                    """)
-
-    with contr:
-        st.subheader("_:grey[Sự Đóng góp của NTViz]_")
+                    LIDA leverages large language models as managers to assist users in executing its tasks.
+                """)
+            
+            
+            
+    with innova:
+        # Proposed New Improvements
+        st.subheader("_:grey[New Improvements in LIDA:]_")
         st.markdown(""" 
-                    Đề tài này đóng góp vào việc hỗ trợ những người làm trong các lĩnh vực cần nhiều thông tin, các tệp dữ liệu nhưng không chuyên, hoặc các bạn học sinh, sinh viên không có kiến thức nền về Phân Tích Dữ Liệu dễ dàng tiếp cận và trực quan hoá các tập tin của mình nhằm phục vụ cho mục đích của bản thân.
-                    - **Hỗ trợ những người không chuyên về Phân tích Dữ liệu:** giúp làm sạch và dùng biểu đồ để trực quan hoá dữ liệu của họ.
-                    - **Đề xuất các biểu đồ tự động:** giúp tối ưu hóa hiệu quả bằng cách tự động đề xuất các biểu đồ trực quan hóa theo các chủ đề mà người dùng muốn hướng tới.
-                    - **Tiết kiệm thời gian:** Tự động hóa quy trình lựa chọn biểu đồ phù hợp, giúp người dùng tiết kiệm thời gian và giảm bớt việc thử-sai.
-                    - **Cải thiện khả năng tiếp cận dữ liệu:** Giảm rào cản trong việc truy cập và trực quan hóa dữ liệu cho những người không có kỹ năng kỹ thuật, từ đó khuyến khích việc sử dụng dữ liệu trong quyết định kinh doanh hoặc nghiên cứu.
-                    - **Công cụ học tập:** Từ việc đề xuất biểu đồ, hệ thống đóng vai trò như một công cụ học tập cho các học sinh, sinh viên hoặc người đi làm, giúp họ hiểu rõ các nguyên tắc trực quan, diễn giải, ý nghĩa của biểu đồ được đề xuất.   
-                    - **Khả năng mở rộng và tích hợp:** Hệ thống có tiềm năng được mở rộng và tích hợp vào các nền tảng phân tích khác, giúp tối ưu hóa quy trình làm việc của nhiều doanh nghiệp và tổ chức.
+                    After thoroughly exploring the tasks in LIDA, we noticed:
+                    - In LIDA, when inputting a dataset, it lacks a built-in "Data Cleaning" feature for users.
+                    - The "summarize" feature is not clear and direct enough.
                     """)
-        
-        st.divider()
-        # Những cải tiến mới chúng tôi đề xuất
-        st.subheader("_:grey[Cải tiến mới trong LIDA:]_")
         st.markdown(""" 
-                    Sau khi tìm hiểu kĩ càng về các tác vụ trong LIDA, chúng tôi nhận thấy:
-                    - Trong LIDA, khi nhập đầu vào bộ dữ liệu thì LIDA không có tính năng "Cleaning DATA" sẵn cho người dùng.
-                    - Tính năng "summarize" của nó chưa đủ rõ ràng và trực diện. Ví dụ:
-                    """)
-        st.image("material/lida/summary.png", 
-                caption="Hình 1. Ví dụ về bảng tóm tắt của 1 cột dữ liệu.",
-                use_container_width=True)
-        st.markdown(""" 
-                    - Tính năng tạo biểu đồ dựa trên câu truy vấn có nhiều tiềm năng. Nó có thể tạo tốt từ 3 đến 5 biểu đồ chỉ dựa theo câu truy vấn mà người dùng đưa ra.
+                    - The chart generation feature based on user queries has significant potential. It can effectively create 3 to 5 charts solely based on the queries provided by users.
                     """)
         st.markdown("""
-                    Do đó, chúng tôi đề xuất thêm:
-                    - Tích hợp thư viện `ydata_profiling` để đưa ra những thông tin chung trực diện hơn cho bộ dữ liệu.
-                    - Trước khi LIDA **"summarize"** và **"goals explorer"**, chúng tôi sẽ tích hợp thêm 1 hàm giúp người dùng kiểm tra dữ liệu đã sạch hay chưa, nếu chưa thì chúng tôi sẽ làm sạch giúp họ.
+                    Therefore, we propose the following additions:
+                    - Integrate the `ydata_profiling` library to provide clearer and more direct insights about the dataset.
+                    - Before LIDA performs **"summarize"** and **"goals explorer"**, we will integrate a function to check if the data is clean. If not, we will clean the data for the user.
                     """)
         st.image("material/lida/overview.png", 
-                caption="Hình 2. Minh Họa Overview",
+                caption="Figure 2. Overview Illustration",
                 use_container_width=True)
 
-    # Nguồn tham khảo
+        
+        
+        
+    with contr:
+        st.header("💡:grey[Why contribute to NTviz?]")
+        st.markdown(""" 
+                    #### Your contributions help:
+                    - Make NTviz a practical and user-friendly system for everyone.
+                    - Enhance the system's features, ensuring it meets user needs in real-world scenarios.
+                    - Bridge the gap between data and non-technical users, empowering them to make better decisions using their own datasets.
+                    - Foster a community where data is accessible and understandable for all.\n
+                    :point_right: If you have expertise in **programming, data analysis, UI/UX design**, or even if you’re an **enthusiastic user**, we welcome your contributions to NTviz.
+                    """)
+        st.markdown("#### 🤝 Ways to Contribute:")
+        st.markdown(""" 
+                    - **Suggest new features:** Share ideas that can make NTviz more intuitive and effective.
+                    - **Report bugs:** Let us know about any issues you encounter.
+                    - **Help with documentation:** Improve user guides or provide detailed examples.
+                    - **Join as a collaborator:** Actively develop and enhance the project.
+                    - **Spread the word:** Share NTviz with friends and colleagues who might benefit from it.
+                    """)
+        st.markdown("#### :link: **Contact us to contribute:**")
+        st.markdown("Email: [ntviz.support@example.com](mailto:ntviz.support@example.com)")
+
     with source:
-        st.subheader("_:grey[Nguồn Tham Khảo và Ghi Nhận:]_")
-        st.markdown("[LIDA: A Tool for Automatic Generation of Grammar-Agnostic Visualizations and Infographics using Large Language Models](https://aclanthology.org/2023.acl-demo.11) (Dibia, ACL 2023)")
-        st.markdown("[COHERE, API KEY](https://dashboard.cohere.com/?_gl=1*5bkinq*_gcl_au*MTQ5NTExMTE3MS4xNzMwOTcxODg1*_ga*NTc0ODQ4NDk0LjE3MzA5NzE4ODI.*_ga_CRGS116RZS*MTczNDI0Njk5Ni4yMi4wLjE3MzQyNDY5OTYuNjAuMC4w)")
-        st.write("_:violet[Chúng tôi xin trân trọng gửi lời cảm ơn chân thành đến :blue[LIDA] và :blue[COHERE] vì đã cung cấp các công cụ và dịch vụ tuyệt vời, giúp dự án này trở nên khả thi. Không có sự hỗ trợ của họ, chúng tôi không thể đạt được kết quả như hiện tại. ❤️]_")    
+        st.header("📂:grey[Source Code & Resources]")
+        st.markdown(""" 
+                    NTviz is open-source! Feel free to explore, modify, and contribute to our project.
+                    #### Where to find our code:
+                    - GitHub: [NTviz Repository](https://github.com/ntviz-project)  
+                    
+                    #### Open Source License:
+                    - NTviz is licensed under the MIT License. This means you're free to use, modify, and distribute the software, as long as proper attribution is given.
+                    """)
 
     with contact:
-        st.subheader("📞 :grey[Liên hệ]")
+        st.header("📞:grey[Contact Support]")
+        st.markdown(""" 
+                    Have questions, suggestions, or need help?  
+                    Our team is here to assist you! Reach out to us via the following channels:  
+                    
+                    - **Email:** ntviz.support@example.com  
+                    
+                    #### Business Inquiries:  
+                    For partnerships or collaborations, please email: business.ntviz@example.com
+                    """)
+        st.markdown(""" 
+                    ### FAQs:
+                    **Q: Who is NTviz for?**  
+                    A: NTviz is designed for non-technical users who need a simple, intuitive tool to visualize and understand their data.
+
+                    **Q: Can I use NTviz for free?**  
+                    A: Yes, NTviz is completely free. We believe in democratizing access to data visualization for everyone.
+
+                    **Q: What file formats does NTviz support?**  
+                    A: NTviz currently supports `.csv` file formats.
+                    """)
         st.markdown("""
-        - **Email**: support@ntviz.com
-        - **Website**: [NTViz](https://ntviz.com)
-        - **Hotline**: 0123-456-789
-        """)
+                    ### Acknowledgments:  
+                    Our project is inspired by groundbreaking work from leading tools and research:
 
+                    - **LIDA**: *A Tool for Automatic Generation of Grammar-Agnostic Visualizations and Infographics using Large Language Models* (Dibia, ACL 2023).  
+                    - **Cohere**: Providing cutting-edge NLP APIs for data-driven applications.
 
+                    We greatly appreciate the contributions and advancements made by these tools, enabling us to develop NTviz for a broader audience.
+
+                    """)
+        
 show_home()
