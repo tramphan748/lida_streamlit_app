@@ -1,5 +1,5 @@
 [[pages]]
-name = "Trang Chủ"
+name = "Home"
 is_section = true
 icon = "🏠"
 
@@ -9,14 +9,12 @@ name = "Dashboard"
 icon = ""
 
 [[pages]]
-name = "API Key"
-is_section = true
-icon = "🔑"
-
-[[pages]]
 path = "API_key.py"
-name = "Hướng dẫn lấy API KEY"
+name = "Instruction to get API KEY"
 icon = ""
+
+
+
 
 [[pages]]
 name = "Overview"
@@ -30,7 +28,7 @@ icon = ""
 
 
 [[pages]]
-name = "Các Chức Năng của LIDA"
+name = "LIDA's functions"
 is_section = true
 icon = "📊"
 
