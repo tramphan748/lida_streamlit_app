@@ -235,7 +235,7 @@ def show_home():
 
                     - **LIDA**: *A Tool for Automatic Generation of Grammar-Agnostic Visualizations and Infographics using Large Language Models* (Dibia, ACL 2023).  
                     - **Cohere**: Providing cutting-edge NLP APIs for data-driven applications.
-
+                    - **Gemini**: Providing cutting-edge NLP APIs for our NTViz.
                     We greatly appreciate the contributions and advancements made by these tools, enabling us to develop NTviz for a broader audience.
 
                     """)
