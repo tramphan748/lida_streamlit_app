@@ -16,26 +16,85 @@ from PIL import Image
 # Load environment variables
 load_dotenv()
 
+
 def load_api_key():
     """Load API Key from user input or environment variables."""
-    if "api_key" not in st.session_state:
-        st.session_state.api_key = ""
+    # if "api_key" not in st.session_state:
+    #     st.session_state.api_key = ""
     
-    # Input API key
-    st.sidebar.subheader("Enter API key:")
-    api_key = st.sidebar.text_input(
-        "API key:", value=st.session_state.api_key, type="password", placeholder="Enter your API key"
-    )
-    st.session_state.api_key = api_key
+    
+    # # Select provider
+    # provider = st.sidebar.selectbox("Provider",["Cohere", "Gemini"])
+    
+    
+    # st.sidebar.subheader("Choose your provider and Enter API Key:")
+    # if provider == "Cohere":
+    # # Input API key
+    #     api_key = st.sidebar.text_input(
+    #         "API key:", value=st.session_state.api_key, type="password", placeholder="Enter your API key"
+    #     )
+    #     st.session_state.api_key = api_key
+    # elif provider == "Gemini":
+    #     api_key = st.sidebar.text_input(
+    #         "API key:", value=st.session_state.api_key, type="password", placeholder="Enter your API key"
+    #     )
+    #     st.session_state.api_key = api_key
+    # # Validate API key
+    # if not api_key:
+    #     st.warning("Please enter the API key to continue.")
+    # else:
+    #     pass
+    #     # st.success("API key has been entered.")
+    
+    # Initialize session state for API keys if not exists
+    if "cohere_api_key" not in st.session_state:
+        st.session_state.cohere_api_key = ""
+    if "gemini_api_key" not in st.session_state:
+        st.session_state.gemini_api_key = ""
+    
+    with st.sidebar.popover(label=" ☑️:violet[Provider Instruction]"):
+        st.info("""
+            **Read this before you choose the provider:**  
+            ###### You can only choose one provider throughout our services:
+            - To change the provider, please close this tab and open the website again. 
+            
+            ###### If you primarily want to use the tasks :blue[UserQuery Based Graph] or :blue[VizRecommend]:
+            - **Cohere**: Can generate between 1 to 5 charts, but they are not as detailed.
+            - **Gemini**: Generates only 1 chart, but with more detailed information.
+        """)
+
+
+    st.sidebar.subheader("Choose your provider and Enter API Key:")
+    # Select provider
+    provider = st.sidebar.selectbox("Provider", ["Cohere", "Gemini"])
+    # Handle API key input based on provider
+    if provider == "Cohere":
+        api_key = st.sidebar.text_input(
+            "Cohere API key:", 
+            value=st.session_state.cohere_api_key, 
+            type="password", 
+            placeholder="Enter your Cohere API key"
+        )
+        st.session_state.cohere_api_key = api_key
+    else:
+        api_key = st.sidebar.text_input(
+            "Gemini API key:", 
+            value=st.session_state.gemini_api_key, 
+            type="password", 
+            placeholder="Enter your Gemini API key"
+        )
+        st.session_state.gemini_api_key = api_key
 
     # Validate API key
     if not api_key:
         st.warning("Please enter the API key to continue.")
-    else:
-        pass
-        # st.success("API key has been entered.")
+        
 
-    return api_key
+    return api_key, provider
+
+
+
+
 
 
 def upload_file():
