@@ -255,7 +255,7 @@ def process_user_query_graphs(df, lida, textgen_config, provider):
         except Exception as e:
             st.error(f"Error initializing LIDA or Cohere: {e}")
 
-def process_viz_recommend(df, lida, textgen_config, provider):
+def process_viz_recommend(df, lida, textgen_config):
     """
     Recommend charts based on data summary.
     
@@ -267,12 +267,9 @@ def process_viz_recommend(df, lida, textgen_config, provider):
     Returns:
         Recommended visualizations based on user requests.
     """
-    if provider == "Cohere":
-        k = st.number_input(label="Top Charts:", min_value=1, max_value=5, step=1)
-    else:
-        k = 1
-        st.info("Gemini can only generate one chart at a time because the chat functionality does not support a candidate_count greater than 1.")
     
+    k = st.number_input(label="Top Charts:", min_value=1, max_value=5, step=1)
+   
     if st.button(label="Generate Charts"):
         try:
             
@@ -284,7 +281,7 @@ def process_viz_recommend(df, lida, textgen_config, provider):
                 charts = lida.visualize(summary=summary, goal=goals[0], library="seaborn")
                 
                 if charts:
-                    textgen_config.n = k
+                    #textgen_config.n = k
                     recommended_charts = lida.recommend(
                         code=charts[0].code, 
                         summary=summary, 
@@ -353,7 +350,7 @@ def show_task():
             process_user_query_graphs(df, lida, textgen_config, provider)
         
         elif task == "VizRecommend" and lida:
-            process_viz_recommend(df, lida, textgen_config, provider)
+            process_viz_recommend(df, lida, textgen_config)
         else:
             st.error("Please select a valid task or ensure LIDA is initialized correctly.")
 
