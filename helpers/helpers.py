@@ -58,7 +58,7 @@ def load_api_key():
             ###### You can only choose one provider throughout our services:
             - To change the provider, please close this tab and open the website again. 
             
-            ###### If you primarily want to use the tasks :blue[UserQuery Based Graph] or :blue[VizRecommend]:
+            ###### If you primarily want to use the tasks :blue[UserQuery Based Graph]:
             - **Cohere**: Can generate between 1 to 5 charts, but they are not as detailed.
             - **Gemini**: Generates only 1 chart, but with more detailed information.
         """)
