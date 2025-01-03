@@ -159,7 +159,7 @@ def show_home():
                     After thoroughly exploring the tasks in LIDA, we noticed:
                     - In LIDA, when inputting a dataset, it lacks a built-in "Data Cleaning" feature for users.
                     - The "summarize" feature is not clear and direct enough.
-                    - Google stops providing API key :blue["palm"] by October 2024.
+                    - Google stops providing API key :blue["palm"] by October 2024. Therefore, users can't use the provider "Palm" anymore.
                     """)
         st.markdown(""" 
                     - The chart generation feature based on user queries has significant potential. It can effectively create 3 to 5 charts solely based on the queries provided by users.
@@ -168,7 +168,7 @@ def show_home():
                     Therefore, we propose the following additions:
                     - Integrate the `ydata_profiling` library to provide clearer and more direct insights about the dataset.
                     - Before LIDA performs **"summarize"** and **"goals explorer"**, we will integrate a function to check if the data is clean. If not, we will clean the data for the user.
-                    - We have implemented functionality to integrate the :blue API key into our NTViz platform, enabling users to choose between the :violet[Cohere] and :blue[Gemini] providers.
+                    - We leveraged the :red[llmx] GitHub code to integrate the :blue API key into our NTViz platform, enabling users to choose between the :violet[Cohere] and :blue[Gemini] providers.
                                         """)
         st.image("material/lida/overview.png", 
                 caption="Figure 2. Overview Illustration",
