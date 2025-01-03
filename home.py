@@ -168,8 +168,8 @@ def show_home():
                     Therefore, we propose the following additions:
                     - Integrate the `ydata_profiling` library to provide clearer and more direct insights about the dataset.
                     - Before LIDA performs **"summarize"** and **"goals explorer"**, we will integrate a function to check if the data is clean. If not, we will clean the data for the user.
-                    - We leveraged the :red[llmx] GitHub code to integrate the :blue API key into our NTViz platform, enabling users to choose between the :violet[Cohere] and :blue[Gemini] providers.
-                                        """)
+                    - We leveraged the [:red[llmx]](https://github.com/tramphan748/llmx-gemini) GitHub code to integrate the :blue[Gemini] API key into our NTViz platform, enabling users to choose between the :violet[Cohere] and :blue[Gemini] providers.
+                                       """)
         st.image("material/lida/overview.png", 
                 caption="Figure 2. Overview Illustration",
                 use_container_width=True)
