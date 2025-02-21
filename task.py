@@ -53,8 +53,8 @@ def setup_model_textgen(models, provider):
             st.markdown(""" 
                     **NTViz works best with the datasets:**
                     - Columns: ≤ 10  
-                    - Rows: ≤ 1000  
-                    - File Size: ≤ 500KB  
+                    - Rows: ≤ 10000  
+                    - File Size: ≤ 1MB  
 
                     **Correct CSV Format:**  
                     Your file should contain only the variable names as column headers and the corresponding values.  
@@ -130,7 +130,7 @@ def initialize_lida_and_api(api_key, provider):
         if provider == "Gemini":
             text_gen = llm("gemini", api_key = api_key)
             lida = Manager(text_gen=text_gen)
-            models =["gemini-2.0-flash-exp", 
+            models =["gemini-1.5-pro", 
                     "gemini-1.5-flash", 
                     "gemini-1.5-flash-8b"]
                 

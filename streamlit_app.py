@@ -28,14 +28,14 @@ def main():
     # Load environment variables
     load_dotenv()
     # DESIGN implement changes to the standard streamlit UI/UX
-    st.set_page_config(page_title="rephraise", page_icon="C:/Users/PC/Desktop/website/material/logo.jpg", layout="wide", initial_sidebar_state="expanded")
+    st.set_page_config(page_title="NTViz", page_icon="material/outlook/logo.jpg", layout="wide", initial_sidebar_state="expanded")
     sections = st.sidebar.toggle("Sections", value=True, key="use_sections")
 
     nav = get_nav_from_toml(
         ".streamlit/pages_sections.toml" if sections else ".streamlit/pages.toml"
     )
     # Decor
-    st.logo(image="C:/Users/PC/Desktop/website/material/logo.jpg", size="large",icon_image=None)
+    st.logo(image="material/outlook/logo.jpg", size="large",icon_image=None)
     pg = st.navigation(nav)
 
     add_page_title(pg)
