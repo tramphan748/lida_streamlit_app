@@ -1,75 +1,75 @@
-### 📊 Giới thiệu
-Dự án [NTViz](https://ntviz-site.streamlit.app/) triển khai một ứng dụng Streamlit để thực hiện nhiều tác vụ phân tích, trực quan hóa dữ liệu và tương tác với mô hình ngôn ngữ lớn (LLM) thông qua framework [LIDA](https://github.com/microsoft/lida).
+### 📊 Introduction
+[NTViz](https://ntviz-site.streamlit.app/) is a Streamlit application that performs various data analysis, visualization tasks and interacts with Large Language Models (LLMs) through the [LIDA](https://github.com/microsoft/lida) framework.
 
-### 🛠️ Yêu cầu & Cài đặt
+### 🛠️ Prerequisites & Installation
 
-#### Cách 1: Sử dụng trên trang web
-Truy cập trực tiếp [NTViz](https://ntviz-site.streamlit.app/) trên trình duyệt.
+#### Option 1: Use the Web Application
+Access [NTViz](https://ntviz-site.streamlit.app/) directly in your browser.
 
-#### Cách 2: Chạy trên máy cục bộ
+#### Option 2: Run Locally
 ```bash
-# Clone repository
+# Clone the repository
 git clone https://github.com/tramphan748/lida_streamlit_app.git
 cd lida_streamlit_app
 
-# Cài đặt các gói cần thiết
+# Install the required packages
 pip install -r requirements.txt
 
-# Chạy ứng dụng
+# Run the application
 streamlit run streamlit_app.py
 ```
 
-**Lưu ý:** File `requirements.txt` bao gồm [llmx-gemini](https://github.com/tramphan748/llmx-gemini), một phiên bản tinh chỉnh của thư viện llmx hỗ trợ API Gemini. Nếu bạn đã cài đặt llmx thủ công ở chế độ editable, hãy đảm bảo cùng mã hoặc dòng git+... có trong requirements.txt.
+**Note:** The `requirements.txt` file includes [llmx-gemini](https://github.com/tramphan748/llmx-gemini), a customized version of the llmx library that supports the Gemini API. If you manually installed llmx in editable mode, ensure that the same code or git+... line is present in requirements.txt.
 
-### 📑 Tính năng
+### 📑 Features
 
-#### 1. Trang chủ (Dashboard)
-Giới thiệu về dự án, tổng quan về khả năng và giao diện người dùng.
+#### 1. Dashboard
+Introduction to the project, overview of capabilities, and user interface.
 
-#### 2. Hướng dẫn lấy API Key
-Hướng dẫn chi tiết để lấy API key từ hai nhà cung cấp chính:
+#### 2. API Key Instructions
+Step-by-step guide to obtain API keys from two main providers:
 - Cohere
-- Gemini (sử dụng thư viện [llmx-gemini](https://github.com/tramphan748/llmx-gemini) đã được tùy chỉnh)
+- Gemini (using our customized [llmx-gemini](https://github.com/tramphan748/llmx-gemini) library)
 
-#### 3. Báo cáo dữ liệu (Data Report)
-Tạo tổng quan toàn diện về dữ liệu:
-- Tự động sinh các thống kê
-- Biểu đồ và trực quan hóa
-- Kiểm tra dữ liệu thiếu
-- Phân tích tương quan
-- Phân tích dữ liệu thăm dò cơ bản (EDA)
+#### 3. Data Reports
+Generate comprehensive data overviews:
+- Automatic statistics generation
+- Charts and visualizations
+- Missing value detection
+- Correlation analysis
+- Basic exploratory data analysis (EDA)
 
-![Ví dụ về Data Report](/material/readme/data_overview.png)
+![Data Report Example](/material/readme/data_overview.png)
 
-#### 4. Các tác vụ LIDA
+#### 4. LIDA Tasks
 
-##### 4.1. Tóm tắt & Mục tiêu (Summarize & Goal)
-Tận dụng LLM để tự động tạo:
-- Tóm tắt dữ liệu
-- Top 5 mục tiêu phân tích
+##### 4.1. Summarize & Goal
+Leverage LLMs to automatically generate:
+- Data summaries
+- Top 5 analytical goals
 
-![Ví dụ về Goal](/material/readme/insight0.png)
-![Biểu đồ tương ứng](/material/readme/chart_insight0.png)
-![Giao diện VizOps](/material/readme/Vizops.png)
+![Goal Example](/material/readme/insight0.png)
+![Corresponding Chart](/material/readme/chart_insight0.png)
+![VizOps Interface](/material/readme/Vizops.png)
 
-##### 4.2. Biểu đồ dựa trên truy vấn người dùng
-Tạo trực quan hóa dựa trên câu hỏi ngôn ngữ tự nhiên của người dùng.
+##### 4.2. User Query Based Graphs
+Create visualizations based on natural language user queries.
 
-![Ví dụ về truy vấn người dùng](/material/readme/userQuery_based_graphs.png)
+![User Query Example](/material/readme/userQuery_based_graphs.png)
 
-##### 4.3. Đề xuất (Recommend)
-Dựa trên tóm tắt, mục tiêu, mã nguồn và trực quan hóa đã tạo, hệ thống tự động đề xuất thêm 1-5 biểu đồ.
+##### 4.3. Recommendations
+Based on summaries, goals, code, and generated visualizations, the system automatically suggests 1-5 additional charts.
 
-![Ví dụ về tác vụ VizRecommend](/material/readme/recommend.png)
+![VizRecommend Task Example](/material/readme/recommend.png)
 
-### 📚 Tài liệu tham khảo
-- [LIDA Github](https://github.com/microsoft/lida) – Framework LIDA gốc
-- [llmx-gemini](https://github.com/tramphan748/llmx-gemini) – Tích hợp Gemini tùy chỉnh cho llmx
-- [YData Profiling](https://docs.profiling.ydata.ai/latest/) – Thư viện lập hồ sơ dữ liệu
-- [Streamlit Documentation](https://docs.streamlit.io/) – Xây dựng ứng dụng dữ liệu tương tác bằng Python
+### 📚 References
+- [LIDA Github](https://github.com/microsoft/lida) – Original LIDA framework
+- [llmx-gemini](https://github.com/tramphan748/llmx-gemini) – Custom Gemini integration for llmx
+- [YData Profiling](https://docs.profiling.ydata.ai/latest/) – Data profiling library for quick overviews
+- [Streamlit Documentation](https://docs.streamlit.io/) – Building interactive data apps in Python
 
-### 📖 Tài liệu và Trích dẫn
-Bài báo mô tả LIDA (được chấp nhận tại Hội nghị ACL 2023) có thể xem [tại đây](https://arxiv.org/abs/2303.02927).
+### 📖 Documentation and Citation
+A paper describing LIDA (Accepted at ACL 2023 Conference) is available [here](https://arxiv.org/abs/2303.02927).
 
 ```bibtex
 @inproceedings{dibia2023lida,
