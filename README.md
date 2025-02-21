@@ -64,7 +64,7 @@ Based on summaries, goals, code, and generated visualizations, the system automa
 
 ### 📚 References
 - [LIDA Github](https://github.com/microsoft/lida) – Original LIDA framework
-- [llmx-gemini](https://github.com/tramphan748/llmx-gemini) – Custom Gemini integration for llmx
+- [llmx-gemini](https://github.com/tramphan748/llmx-gemini) – Custom Gemini integration for [llmx](https://github.com/victordibia/llmx)
 - [YData Profiling](https://docs.profiling.ydata.ai/latest/) – Data profiling library for quick overviews
 - [Streamlit Documentation](https://docs.streamlit.io/) – Building interactive data apps in Python
 
