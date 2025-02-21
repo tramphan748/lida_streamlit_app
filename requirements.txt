@@ -8,4 +8,5 @@ streamlit==1.40.2
 streamlit_option_menu==0.4.0
 streamlit_pandas_profiling==0.1.3
 ydata_profiling==4.12.1
+setuptools==75.1.0
 -e git+https://github.com/tramphan748/llmx-gemini.git#egg=llmx
